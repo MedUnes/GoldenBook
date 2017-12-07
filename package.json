@@ -11,9 +11,9 @@
     "ExpressJS",
     "express",
     "Node",
-    "NodeJS"
+    "NodeJS",
     "PassportJS",
-    "medunes",
+    "medunes"
   ],
   "author": "medunes",
   "license": "ISC",
