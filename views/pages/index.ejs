@@ -1,0 +1,61 @@
+<% include header  %>
+	<form action="/" method="post"  class="ui form">
+		<div class="field">
+			<label for="message">Your golden Message</label>
+			<textarea name="message" id="message"></textarea>		
+		</div>	
+		<button type="sumbit" class="ui blue labeled submit icon button">Submit
+		<i class="icon edit"></i>
+		</button>
+	</form>
+	<div class="ui comments">
+		<h3 class="ui dividing header">Messages</h3>
+		<% for (message of messages) { %>
+		<div class ="comment">
+			<a class="avatar">
+      			<img src="<%=`/assets/images/user/${user.photo}` %>">
+    		</a>
+			<div class ="content">
+				<a class="author"><%= message.user.fullName %></a>
+				<div class ="metadata">
+					<div class ="date"><%= message.created_at.fromNow() %></div>	
+				</div>	
+				<div class ="text">
+					<a href="#"></a>
+					 <%= message.content %>		
+				</div>	
+			</div>
+      		<span class="actions">
+      		<% 	let currentAction="like";  
+       			let likers = message.likers.map((l)=>{return l.id});
+       			for (l of likers){
+       				if(user.id===l){
+       					currentAction="unlike";
+       					break;
+       				}
+       			}
+       			if(currentAction==="like"){
+       		%>
+       			<% if(message.numberOfLikes!==0){%>
+       				<i class="reply thumbs up icon" style="color:#333"></i><%=message.numberOfLikes %>
+       			<% } %>	
+       			<a class="reply" style="color:#00b" onclick="like(<%= message.id %>)">like</a>
+       			<% if(message.user_id===user.id){%>
+       				<a class="reply" style="color:#00b" onclick="remove(<%= message.id %>)">Remove</a> 
+       			<% } %>	
+       				
+       		<% } else { %>
+       				
+       			<% if(message.numberOfLikes!==0){%>
+       				<i class="reply thumbs up icon" style="color:#333"></i><%=message.numberOfLikes %>
+       			<% } %>	
+       			<a class="reply" style="color:#00b" onclick="unlike(<%= message.id %>)">unlike</a> 
+       			<% if(message.user_id===user.id){%>
+       				<a class="reply" style="color:#00b" onclick="remove(<%= message.id %>)">Remove</a> 
+       			<% } %>	  
+       		<% } %>
+      		</span>
+		</div>
+		<%}%>
+	</div>
+<% include footer  %>

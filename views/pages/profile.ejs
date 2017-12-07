@@ -1,0 +1,31 @@
+<% include header%>
+<div class="ui text container">
+  
+  <h1 class="ui header"> Profile Info</h1>  
+<form action="/profile" method="post" class="ui form" enctype="multipart/form-data">
+     <div class="ui image-upload segment">
+      <img id="profile-image" style="margin-bottom: 10px" class="ui image medium" src="<%=`/assets/images/user/${user.photo}` %>">
+       <a id="remove-image" class="ui mini button">Remove</a>
+       <a id="upload-image" class="ui mini blue button" onCLick="document.getElementsByName('photo')[0].click()">Upload</a>
+    </div>
+  <div class="eight wide field">
+    <label>First Name</label>
+    <input type="text" name="firstName" value= "<%= user.firstName%>" >
+  </div>
+  <div class="eight wide field">
+    <label>Last Name</label>
+    <input type="text" name="lastName" value = "<%= user.lastName%>" >
+  </div>
+     <input hidden type="file" name="photo" accept="image/gif, image/jpeg, image/png, image/jpg" >
+  <div class="eight wide field">
+  <a href="/" class="ui huge cancel-button red button">
+    Cancel
+  </a>
+  <button type="submit" class="ui huge save-button green button">
+    Save
+  </button>
+</div>
+</form>
+</div>
+  
+<% include footer%>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Golden Book (v2) by medunes</title>
+	<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
+
+  <style type="text/css">
+    body {
+      background-color: #333;
+    }
+    body > .grid {
+      height: 100%;
+    }
+    .image {
+      margin-top: -100px;
+    }
+    .column {
+      max-width: 450px;
+    }
+  </style>
+</head>
+<body>
+	<div class="ui middle aligned center aligned grid">
+		<div class="column">
+			<h2 class="ui yellow image header">
+				<img src="assets/images/logo.png" class="image">
+				<div class="content">
+					Login to Golden-Book
+				</div>
+			</h2>
+			<form class="ui large form">
+				<div class="ui stacked segment">
+					<div class="field">
+						<a class="ui facebook button" href="/auth/facebook" id="facebook-login-btn">
+							<i class="facebook icon"></i>
+							Facebook
+						</a>
+						<a class="ui google plus button disabled" href="#" id="google-login-btn">
+							<i class="google plus icon"></i>
+							Google Plus
+						</a>
+						<a class="ui github button disabled" href="#" id="github-login-btn">
+							<i class="github icon"></i>
+							Github
+						</a>
+					</div>
+				<div class="ui error message"></div>
+			</form>
+		</div>
+	</div>
+
+</div>
+</body>
+</html>	

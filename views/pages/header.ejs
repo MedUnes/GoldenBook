@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Golden Book (v2.0) &copy by medunes</title>
+		<link rel="stylesheet" type="text/css" href="/assets/css/semantic.min.css">
+	</head>
+	<body>
+		<div class="ui fixed inverted menu">
+	 		<a href="/" class="menu active item yellow">Golden Book (v2.0) &copy by medunes </a>
+			<div class="right menu">
+			    <div class="ui simple dropdown item">
+				    <i class="user circle outline large icon yellow"></i>
+				    <%=locals.user.firstName + " " +locals.user.lastName %>
+				    <i class="dropdown icon"></i>
+			    	<div class="menu">
+				    	<a  href="/profile" class="item"><i class="user icon"></i>Profile</a>
+				        <a href="/logout" class="item"><i class="sign out icon"></i>Logout</a>
+				        <a  target="_blank" href="https://github.com/MedUnes/GoldenBook" class="item">
+				        	<i class="github icon"></i>Github Repo
+				        </a>
+			    	</div>
+			    </div>
+			</div>
+	 	</div>
+	 	<div class="ui main container" style = "margin-top: 7em;" >
+	 	<% if (locals.flash && locals.flash.error ) {%>
+		 	<div class="ui negative message">
+		 		<%= flash.error %>
+		 	</div>
+	 	<% } %>
+	 	<% if (locals.flash && locals.flash.success ) {%>
+		 	<div class="ui positive message">
+		 		<%= flash.success %>
+		 	</div>
+	 	<% } %>
