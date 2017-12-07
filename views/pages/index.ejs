@@ -16,7 +16,7 @@
       			<img src="<%=`/assets/images/user/${user.photo}` %>">
     		</a>
 			<div class ="content">
-				<a class="author"><%= message.user.fullName %></a>
+				<a href="<%= `https://www.facebook.com/${message.user.facebookId}` %>" target="_blank" class="author"><%= message.user.fullName %></a>
 				<div class ="metadata">
 					<div class ="date"><%= message.created_at.fromNow() %></div>	
 				</div>	
